@@ -1,5 +1,7 @@
 # taller13
-
+# Integrantes
+- Jamil Erasmo
+- Gerald Jaramillo
 ## Creación de Servicio Web y Consumo vía Flask
 
 ### Revisar
