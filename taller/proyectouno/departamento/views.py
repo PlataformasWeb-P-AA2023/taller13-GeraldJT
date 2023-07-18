@@ -11,7 +11,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from rest_framework import permissions
-from departamento.serializers import DepartamentoSerializer, EdificioSerializer, UserSerializer, GroupSerializer
+from departamento.serializers import DepartamentoSerializer, EdificioSerializer, PropietarioSerializer, UserSerializer, GroupSerializer
 
 # importar las clases de models.py
 from departamento.models import *
@@ -48,12 +48,14 @@ class EdificioViewSet(viewsets.ModelViewSet):
     serializer_class = EdificioSerializer
     permission_classes = [permissions.IsAuthenticated]
 
+class PropietariosViewSet(viewsets.ModelViewSet):
+    queryset = Propietario.objects.all()
+    serializer_class = PropietarioSerializer 
+    permission_classes = [permissions.IsAuthenticated]
+
 
 class DepartamentoViewSet(viewsets.ModelViewSet):
-# class NumeroTelefonicoViewSet(viewsets.ReadOnlyModelViewSet):
-    """
-    API endpoint that allows users to be viewed or edited.
-    """
     queryset = Departamento.objects.all()
     serializer_class = DepartamentoSerializer
     permission_classes = [permissions.IsAuthenticated]
+

@@ -22,9 +22,20 @@ class EdificioSerializer(serializers.HyperlinkedModelSerializer):
         model = Edificio
         fields = '__all__'
 
-
+class PropietarioSerializer(serializers.HyperlinkedModelSerializer):
+    departamentos = serializers.SerializerMethodField(); 
+    edificios = serializers.SerializerMethodField();
+    class Meta:
+        model = Propietario
+        fields = '__all__' 
+    def get_departamentos(self,obj):
+        return obj.get_departamentos()
+    def get_edificios(self,obj):
+        return obj.get_edificios()
+    
+ 
 class DepartamentoSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Departamento
-        # fields = ['id', 'telefono', 'tipo']
         fields = '__all__' 
+

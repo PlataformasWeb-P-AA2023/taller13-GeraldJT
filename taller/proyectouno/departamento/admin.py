@@ -9,11 +9,19 @@ class EdificioAdmin(admin.ModelAdmin):
 
 admin.site.register(Edificio, EdificioAdmin)
 
+class PropietarioAdmin(admin.ModelAdmin):
+
+    list_display = ('nombre', 'apellido', 'cedula')
+    search_fields = ('nombre', 'cedula')
+    
+
+admin.site.register(Propietario, PropietarioAdmin)
 
 class DepartamentoAdmin(admin.ModelAdmin):
 
-    list_display = ('nombre_Propietario', 'costo', 'numero_cuartos', 'edificio')
+    list_display = ('costo', 'numero_cuartos', 'edificio', 'propietario')
 
-    raw_id_fields = ('edificio',)
+    raw_id_fields = ('edificio', 'propietario')
 
 admin.site.register(Departamento, DepartamentoAdmin)
+

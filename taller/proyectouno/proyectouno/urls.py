@@ -26,6 +26,7 @@ from departamento import views
 router = routers.DefaultRouter()
 router.register(r'edificios', views.EdificioViewSet)
 router.register(r'departamentos', views.DepartamentoViewSet)
+router.register(r'propietarios', views.PropietariosViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

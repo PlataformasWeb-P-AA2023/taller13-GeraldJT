@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Propietarios </title>
+  </head>
+  <body>
+    <h5>Listado de propietarios</h5>
+
+    {% for e in datos %}
+
+    <ol>
+      <li><b>Nombre: </b>{{e['nombre']}}</li>
+      <li><b>Apellido: </b>{{e['apellido']}}</li>
+      <li><b>Cedula: </b>{{e['cedula']}}</li>
+      <li><b>Departamentos: </b>{{e['departamentos']}}</li>
+      <li><b>Edificios de los departamentos </b>{{e['edificios']}}</li>
+    </ol>
+    <hr>
+    {% endfor%}
+  </body>
+</html>
